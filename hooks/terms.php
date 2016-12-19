@@ -1,0 +1,3 @@
+<?
+echo "Terms of use";
+?>
