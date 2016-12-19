@@ -5,7 +5,7 @@ import json
 ########################################
 # Enter here your IP Symcon Connect ID #
 ########################################
-myips = "e04d6b35d8c37f013fb84ead735485bb"
+myips = ""
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
