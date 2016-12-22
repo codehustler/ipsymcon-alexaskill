@@ -13,6 +13,11 @@ if ( $alexaType == "dimmer" ) {
 } else if ( $alexaType == "switch" ) {
 	HM_WriteValueBoolean($deviceId, "STATE", $value == 100);
 } else if ( $alexaType == "shutter" ) {
-   SC_Move($deviceId, $value);
+	SC_Move($deviceId, $value);
+} else if ( $alexaType == "script" ) {
+	IPS_RunScriptEx($deviceId , Array("value" => $value));
+} else if ( $alexaType == "harmony_switch" ) {
+	LHD_Send($deviceId, $value == 100 ? "PowerOn" : "PowerOff");
 }
+
 ?>
