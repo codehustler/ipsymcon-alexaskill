@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Link Alexa to IP Symcon</title>
+        
+        <script lang="javascript">            
+            
+            function submit() {  
+                redirectUrl = getParameterByName('redirect_uri');
+                state = getParameterByName('state');
+                
+                conenctid = document.getElementById("conenctid").value;
+                if ( !conenctid ) {                    
+                    document.getElementById("error").innerHTML = " Please enter your connect ID!";
+                    document.getElementById("error").style.display = "";
+                    return;
+                }
+                
+                window.location = redirectUrl + "?code=" + conenctid + "&state=" + state;
+            }
+            function getParameterByName(name) {
+                url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }            
+        </script>
+    </head>
+    <body>
+        <div class="container">
+        <h2>Link Alexa to IP Symcon</h2>
+            <p>Link your IP Symcon installation with the IP Symcon Alexa Skill.<br/> Please enter your IP Symcon Connect ID, the text between https:// and .ipmagic.de <br /><br />
+                Example: <br />
+                If your connect ULR is <b>https://1234567890ABC.ipmagic.de</b> then enter <b>1234567890ABC</b> in the field below.<br /><br />
+            </p>        
+            <label for="connectid" style="width:100px">Connect Id:</label>
+            <input name="conenctid" id="conenctid" type="text" /><span id="error" style="display:none"></span><br/><br/>
+            
+
+            <button onclick="submit()">Continue with Account linking</button> <br/><br/>
+        </div>        
+    </body>
+</html>
