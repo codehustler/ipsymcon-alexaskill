@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        
+        <script lang="javascript">            
+            
+            function submit() {  
+                redirectUrl = getParameterByName('redirect_uri');
+                state = getParameterByName('state');
+                
+                conenctid = document.getElementById("conenctid").value;
+                if ( !conenctid ) {                    
+                    document.getElementById("error").innerHTML = " Please enter your connect ID!";
+                    document.getElementById("error").style.display = "";
+                    return;
+                }
+                
+                window.location = redirectUrl + "?code=" + conenctid + "&state=" + state;
+            }
+            function getParameterByName(name) {
+                url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }            
+        </script>
+    </head>
+    <body>
+        {
+    "access_token": "some_random_sequence",
+    "token_type": "bearer"
+        }     
+    </body>
+</html>
