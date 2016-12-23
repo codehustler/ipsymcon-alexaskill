@@ -9,7 +9,7 @@ function GetAlexaDevices()
 	$alexaObjects = array();
 	foreach($allObjects as $key => $value)
 	{
-	   if(IPS_InstanceExists($value))
+	   //if(IPS_InstanceExists($value))
 	   {
 			$currentObject = IPS_GetObject($value);
 			$vid = @IPS_GetVariableIDByName("alexa_name", $value);
