@@ -5,7 +5,7 @@ import json
 ########################################
 # Enter here your IP Symcon Connect ID #
 ########################################
-myips = ""
+myips = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -59,7 +59,13 @@ def handleControl(context, event):
         value = event['payload']['percentageState']['value']
         logger.info('SetPercentageRequest ' + str(value))
         confirmation = 'SetPercentageConfirmation'
-        logger.info('foo')
+    elif request_type == 'SetTargetTemperatureRequest':
+        value = event['payload']['targetTemperature']['value']
+        payload = {"targetTemperature":{
+            "value":value}
+            }
+        logger.info('SetTargetTemperatureRequest ' + str(value))
+        confirmation = 'SetTargetTemperatureConfirmation'
         
     urllib2.urlopen("https://"+myips+".ipmagic.de/hook/alexa/control/dimm?id="+device_id+"&value="+str(value)).read()    
         
@@ -71,4 +77,4 @@ def handleControl(context, event):
         "payloadVersion":"2",
         "messageId": message_id
         }
-    return { 'header': header, 'payload': payload }
+    return { 'header': header, 'payload': payload }  
