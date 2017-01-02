@@ -1,0 +1,14 @@
+{
+    "id": "{03FFCF77-0969-4FAF-B53A-44A10856EDB7}",
+    "name": "Alexa Module",
+    "type": 4,
+    "vendor": "mulder8472",
+    "aliases":
+    [
+        "Alexa Module"
+    ],  
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "Alexa"
+}
